@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('Api')->name('api.')->group(function(){
 	Route::prefix('deputados')->group(function(){
-        Route::get('/', 'DeputadoController@findAll')->name('index_deputados');	      
+        Route::get('/', 'DeputadoController@findAll')->name('index_deputados');	
+        Route::get('/{id}', 'DeputadoController@findAll')->name('index_deputados');      
 	});
 });
