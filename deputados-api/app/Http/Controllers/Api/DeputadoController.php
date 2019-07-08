@@ -27,11 +27,16 @@ class DeputadoController extends Controller
 
     public function cadastroDeputadosAssembleia()  {  
         $deputados = $this->getDeputadosAssembleiaApi();     
-        echo '<pre>' , var_dump($deputados) , '</pre>';
-        /*
-        foreach ($deputados as $key => $value) {
-           echo $key.' as '.$value.' </br>';
-        }*/
+         try {
+            foreach ($deputados as $key => $value) { 
+               $deputado = Deputado::firstOrCreate(
+                   ['id' => $value->id], ['name' => $value->name]
+                );
+            }
+         } catch (\Throwable $th) {
+             throw $th;
+         }     
+        
     }               
 
     // Traz os deputados da API da Assembleia
@@ -72,7 +77,7 @@ class DeputadoController extends Controller
                         'name' => $value1->nome
                     ) ; 
                     $deputadosArr = array_merge($deputadosListAtual, $deputadosListEx);
-                    $deputadosObjArr[$i] = json_decode(json_encode($deputadosArr), FALSE);
+                    $deputadosObjArr = json_decode(json_encode($deputadosArr), FALSE);
                     $i++;              
                 }                     
             }     
