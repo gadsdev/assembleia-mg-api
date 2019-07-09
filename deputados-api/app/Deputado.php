@@ -8,5 +8,5 @@ class Deputado extends Model
 {  
     protected $fillable = [
 		'name', 'id'
-    ];        
+    ];
 }

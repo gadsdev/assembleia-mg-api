@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Deputado;
 
 class DatabaseSeeder extends Seeder
 {
@@ -9,11 +10,9 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()   {      
+    public function run()   { 
         
-    }
+        
+    } 
     
-    public function getDeputados()   {      
-        
-    }
 }
