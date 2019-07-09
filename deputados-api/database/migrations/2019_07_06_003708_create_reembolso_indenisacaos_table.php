@@ -16,9 +16,13 @@ class CreateReembolsoIndenisacaosTable extends Migration
         Schema::create('reembolso_indenisacaos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('mes');
-            $table->float('total_reembolsado', 8, 2);          
+            $table->float('total_reembolsado', 8, 2);
+            $table->integer('deputado_id');
 
             $table->timestamps();
+             
+            $table->foreign('deputado_id')->references('id')
+            ->on('deputados')->onDelete('cascade');
         });
     }
 

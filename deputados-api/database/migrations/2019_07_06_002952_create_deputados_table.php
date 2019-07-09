@@ -15,14 +15,10 @@ class CreateDeputadosTable extends Migration
     {
         Schema::create('deputados', function (Blueprint $table) {
             $table->integer('id')->unique();
-            $table->string('name'); 
-            $table->integer('gasto_mensal')->nullable();           
+            $table->string('name');             
              
             
             $table->timestamps(); 
-
-            $table->foreign('gasto_mensal')->references('id')
-            ->on('reembolso_indenisacaos')->onDelete('cascade');
         });
     }
 
