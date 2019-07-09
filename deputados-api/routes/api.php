@@ -21,9 +21,15 @@ Route::namespace('Api')->name('api.')->group(function(){
 	Route::prefix('deputados')->group(function(){
         Route::get('/', 'DeputadoController@findAll')->name('index_deputados');	
         Route::get('/{id}', 'DeputadoController@findById')->name('index_deputados'); 
-        Route::post('/', 'DeputadoController@create')->name('create_deputados');   
-        
-        Route::get('/assembleia', 'DeputadoController@getAssembleiaApi');   
+        Route::post('/', 'DeputadoController@create')->name('create_deputados');  
+	});
+});
+
+Route::namespace('Api')->name('api.')->group(function(){
+	Route::prefix('remmbolso')->group(function(){
+        Route::get('/', 'ReembolsoController@findAll')->name('index_reembolso');	
+        Route::get('/{id}', 'ReembolsoController@findById')->name('index_reembolso'); 
+        Route::post('/', 'ReembolsoController@create')->name('create_reembolso'); 
 	});
 });
 

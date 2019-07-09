@@ -3,26 +3,26 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\ApiError;
-use App\Deputado;
+use App\ReembolsoIndenisacao;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class DeputadoController extends Controller
+class ReembolsoController extends Controller
 {    
   	public function findAll()
     {
-    	return Deputado::all();
+    	return ReembolsoIndenisacao::all();
     }
 
     public function findById($id)
     {
-    	return Deputado::where('id', $id)->firstOrFail();
+    	return ReembolsoIndenisacao::where('id', $id)->firstOrFail();
     }
 
     public function create(Request $request)
     {
         $data = $request->all();
-        return Deputado::create($data);
+        return ReembolsoIndenisacao::create($data);
     }
 
 }
