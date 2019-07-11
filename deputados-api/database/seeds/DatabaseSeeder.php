@@ -11,7 +11,14 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()   { 
-        
+        //Deputados
+        $this->call(DeputadosTableSeeder::class);
+
+        //Remmbolso
+        $this->call(ReembolsoSeeder::class);
+
+        //Redes Sociais
+        $this->call(RedeSocialSeeder::class);
         
     } 
     

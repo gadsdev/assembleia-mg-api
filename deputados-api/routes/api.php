@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::namespace('Api')->name('api.')->group(function(){
-	Route::prefix('deputados')->group(function(){
+	Route::prefix('deputado')->group(function(){
         Route::get('/', 'DeputadoController@findAll')->name('index_deputados');	
         Route::get('/{id}', 'DeputadoController@findById')->name('index_deputados'); 
         Route::post('/', 'DeputadoController@create')->name('create_deputados');  
@@ -34,7 +34,10 @@ Route::namespace('Api')->name('api.')->group(function(){
 });
 
 Route::namespace('Api')->name('api.')->group(function(){
-	Route::prefix('assembleia')->group(function(){  
-        Route::get('/', 'RedeSocialController@getRedesSociais');   
+	Route::prefix('rede_social')->group(function(){  
+        Route::get('/', 'RedeSocialController@getRedesMaisUsadas')->name('index_rede');
+        Route::get('/{id}', 'RedeSocialController@findById')->name('index_rede'); 
+        Route::post('/', 'RedeSocialController@create')->name('create_rede');  
+       
 	});
 });
