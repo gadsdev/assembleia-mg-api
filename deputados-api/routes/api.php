@@ -35,6 +35,6 @@ Route::namespace('Api')->name('api.')->group(function(){
 
 Route::namespace('Api')->name('api.')->group(function(){
 	Route::prefix('assembleia')->group(function(){  
-        Route::get('/', 'RedeSocialController@getRedesMaisUsadas');   
+        Route::get('/', 'RedeSocialController@getRedesSociais');   
 	});
 });

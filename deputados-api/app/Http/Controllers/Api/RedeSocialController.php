@@ -25,33 +25,45 @@ class RedeSocialController extends Controller
         return RedeSocial::create($data);
     }
 
-    public function getRedesMaisUsadas() {        
+    public function getRedesMaisUsadas() { 
+       $redes = RedeSocial::select('nome')
+        ->groupBy('nome')
+        ->orderByRaw('COUNT(*) DESC')       
+        ->get();
+
+        return $redes;
+    }
+
+    public function getRedesSociais() {        
         $deputadosId = $this->getAllDeputados();        
-       
-        //foreach ($deputadosId as $key => $value) {
-            $url = "http://dadosabertos.almg.gov.br/ws/deputados/12195?formato=json";
-            try {
-                $redes = json_decode(file_get_contents($url));
+        $countData = 0;
+        foreach ($deputadosId as $key => $value) {
+            $url = "http://dadosabertos.almg.gov.br/ws/deputados/".$value
+            ."?formato=json";           
+                $redes = json_decode(@file_get_contents($url));
                 if(isset($redes->deputado->redesSociais)){
                     $todasRedes = $redes->deputado->redesSociais;
                     for ($i=0; $i  <= count($todasRedes) ; $i++) { 
-                        $arrCadaRede = $redes->deputado->redesSociais[$i]->redeSocial;
-                        //echo $arrCadaRede->nome." </br>";
-                        $redesUsadas[$i] = array(
-                            "id" => $arrCadaRede->id,
-                            "nome" => $arrCadaRede->nome, 
-                            "url" => $arrCadaRede->url, 
-                        );
-                        
+                        if(isset($redes->deputado->redesSociais[$i])){
+                            $arrCadaRede = $redes->deputado->redesSociais[$i]->redeSocial;
+                            //echo $arrCadaRede->nome." </br>";
+                            /*$redesUsadas[$countData] = array(
+                                "id" => $arrCadaRede->id,
+                                "nome" => $arrCadaRede->nome, 
+                                "url" => $arrCadaRede->url, 
+                            );*/
+                            $redesSociais = new RedeSocial;
+                            $redesSociais->id =  $arrCadaRede->id;
+                            $redesSociais->nome = $arrCadaRede->nome;
+                            $redesSociais->url = $arrCadaRede->url;
+                            $redesSociais->deputado_id = $value;
+                            $redesSociais->save();
+                        }
                     }
-                }                
-            } catch (\Throwable $th) {
-                
-            }  
-        //}
-
-        echo '<pre>' , var_dump($redesUsadas) , '</pre>';
-        die();
+                    $countData++;
+                } 
+        }
+        
     } 
 
     public function getAllDeputados()
