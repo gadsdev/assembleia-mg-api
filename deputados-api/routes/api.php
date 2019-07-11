@@ -35,6 +35,6 @@ Route::namespace('Api')->name('api.')->group(function(){
 
 Route::namespace('Api')->name('api.')->group(function(){
 	Route::prefix('assembleia')->group(function(){  
-        Route::get('/{mes}', 'ReembolsoController@getMaiorGasto');   
+        Route::get('/', 'RedeSocialController@getRedesMaisUsadas');   
 	});
 });
