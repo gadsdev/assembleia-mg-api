@@ -14,7 +14,7 @@ class CreateRedeSocialsTable extends Migration
     public function up()
     {
         Schema::create('rede_socials', function (Blueprint $table) {
-            $table->integer('id')->unique();
+            $table->integer('id');
             $table->string('nome');
             $table->string('url');
             $table->integer('deputado_id');
