@@ -72,7 +72,7 @@ Request:
 
 Response:
 
-	[
+	
   {
     "id": 12193,
     "name": "Adalclever Lopes",
@@ -91,7 +91,7 @@ Response:
     "created_at": "2019-07-11 23:05:37",
     "updated_at": "2019-07-11 23:05:37"
   },
-    ]
+    
 
 ### GET /deputado/id
 
@@ -133,7 +133,7 @@ Request:
 
 Response:
 
-	[
+	
   {
     "id": 1,
     "mes": 1,
@@ -158,7 +158,7 @@ Response:
     "created_at": "2019-07-11 23:06:14",
     "updated_at": "2019-07-11 23:06:14"
   },
-    ]
+    
 
 ### GET /remmbolsos/mes
 
@@ -168,7 +168,7 @@ Response:
 
 Response:
 
-[
+
   {
     "nome": "Sávio Souza Cruz",
     "remmbolso": "8426.25",
@@ -194,7 +194,7 @@ Response:
     "remmbolso": "6654.56",
     "mes": 1
   }
-]
+
 
 ### /rede_social
 
@@ -220,7 +220,7 @@ Request:
 
 Response:
 
-[
+
   {
     "nome": "Facebook"
   },
@@ -233,7 +233,7 @@ Response:
   {
     "nome": "Youtube"
   }
-]
+
 
 ### GET /rede_social/id
 
