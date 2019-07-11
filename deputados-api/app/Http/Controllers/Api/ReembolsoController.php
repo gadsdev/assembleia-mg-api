@@ -26,12 +26,27 @@ class ReembolsoController extends Controller
         return ReembolsoIndenisacao::create($data);
     }
 
-    public function getMaiorGasto() {
-        $valores = ReembolsoIndenisacao::orderBy('total_reembolsado', 'desc')->take(5)->get();
-        //echo '<pre>' , var_dump($valores) , '</pre>';
-        foreach ($valores as $key => $value) {
-            echo $key." as ".$value." </br>";
-        }
+    public function getMaiorGasto($mes) {
+        try {
+            $valores = ReembolsoIndenisacao::where('mes', '=', $mes)
+            ->orderBy('total_reembolsado', 'desc')
+            ->take(5)->get();
+            
+            foreach ($valores as $key => $value) {
+               
+                $deputado = Deputado::find($value->deputado_id);
+                
+                $gasto[$key] = array(
+                    'nome' => $deputado->name,
+                    'remmbolso' => $value->total_reembolsado,
+                    'mes' => $value->mes,                
+                );
+            }     
+         
+           return $gasto;
+        } catch (\Throwable $th) {
+            throw $th;
+        }        
     }
 
     public function createGastos() {
