@@ -95,7 +95,7 @@ Response:
 
 ### GET /deputado/id
 
-- Exibir uma categoria especifica
+- Exibir um deputado especifico
 
 	- Example: http://localhost:8000/api/deputado/15245
 
