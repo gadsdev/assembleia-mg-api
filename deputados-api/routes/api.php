@@ -27,9 +27,9 @@ Route::namespace('Api')->name('api.')->group(function(){
 
 Route::namespace('Api')->name('api.')->group(function(){
 	Route::prefix('remmbolso')->group(function(){
-        Route::get('/', 'ReembolsoController@findAll')->name('index_reembolso');	
-        Route::get('/{id}', 'ReembolsoController@findById')->name('index_reembolso'); 
-        Route::post('/', 'ReembolsoController@create')->name('create_reembolso'); 
+        Route::get('/', 'ReembolsoController@findAll')->name('index_reembolso');
+        Route::get('/{mes}', 'ReembolsoController@getMaiorGasto')->name('get_maior_reembolso');  
+        Route::post('/', 'ReembolsoController@create')->name('create_reembolso');         
 	});
 });
 

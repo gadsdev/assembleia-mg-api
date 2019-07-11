@@ -42,8 +42,7 @@ class ReembolsoController extends Controller
                     'mes' => $value->mes,                
                 );
             }     
-         
-           return $gasto;
+            if(isset($gasto)) return $gasto;           
         } catch (\Throwable $th) {
             throw $th;
         }        
