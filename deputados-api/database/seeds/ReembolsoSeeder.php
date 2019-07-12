@@ -38,7 +38,7 @@ class ReembolsoSeeder extends Seeder
     {   
         $deputadosId = $this->getAllDeputados();
         
-        for ($i=1; $i <= 1; $i++) {            
+        for ($i=1; $i <= 12; $i++) {            
             foreach ($deputadosId as $key => $value) {
                 $url = "http://dadosabertos.almg.gov.br/ws/prestacao_contas/".
                 "verbas_indenizatorias/deputados/".$value."/2017/$i?formato=json";  
