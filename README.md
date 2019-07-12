@@ -71,25 +71,24 @@ Request:
 	- Example: http://localhost:8000/api/deputado
 Response:
 
-    {
-        "id": 15245,
-        "name": "Agostinho Patrus",
-        "created_at": "2019-07-11 23:05:37",
-        "updated_at": "2019-07-11 23:05:37"
-    }
-    {
-        "id": 15246,
-        "name": "Jose Padilha",
-        "created_at": "2019-07-11 23:05:37",
-        "updated_at": "2019-07-11 23:05:37"
-    }
-    {
-        "id": 15247,
-        "name": "Mario Patrus",
-        "created_at": "2019-07-11 23:05:37",
-        "updated_at": "2019-07-11 23:05:37"
-    }
-	
+	    {
+		"id": 15245,
+		"name": "Agostinho Patrus",
+		"created_at": "2019-07-11 23:05:37",
+		"updated_at": "2019-07-11 23:05:37"
+	    }
+	    {
+		"id": 15246,
+		"name": "Jose Padilha",
+		"created_at": "2019-07-11 23:05:37",
+		"updated_at": "2019-07-11 23:05:37"
+	    }
+	    {
+		"id": 15247,
+		"name": "Mario Patrus",
+		"created_at": "2019-07-11 23:05:37",
+		"updated_at": "2019-07-11 23:05:37"
+	    }
  
 ### GET /deputado/id
 
